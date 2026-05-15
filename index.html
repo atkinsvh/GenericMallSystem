@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mall Quest RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">MQ</div>
+        <div>
+          <p class="eyebrow">Generic Life Game</p>
+          <h1>Mall Quest RPG</h1>
+        </div>
+      </div>
+
+      <section class="player-card card">
+        <div class="avatar" id="avatar">🛍️</div>
+        <div>
+          <h2 id="playerNameDisplay">Guest Player</h2>
+          <p id="playerTitle">Level 1 Window Shopper</p>
+        </div>
+        <div class="xp-wrap">
+          <div class="row"><span>XP</span><strong id="xpText">0 / 100</strong></div>
+          <div class="bar"><span id="xpBar"></span></div>
+        </div>
+      </section>
+
+      <section class="card stats-card">
+        <h3>Vitals</h3>
+        <div class="stat-grid">
+          <div><span>Coins</span><strong id="coins">0</strong></div>
+          <div><span>Gems</span><strong id="gems">0</strong></div>
+          <div><span>Streak</span><strong id="streak">0</strong></div>
+          <div><span>Tasks</span><strong id="tasksDone">0</strong></div>
+        </div>
+      </section>
+
+      <section class="card settings-card">
+        <h3>Player Setup</h3>
+        <label>Name <input id="playerName" placeholder="Guest Player" /></label>
+        <label>Avatar
+          <select id="avatarSelect">
+            <option>🛍️</option><option>🧋</option><option>🎮</option><option>🐉</option><option>🛹</option><option>🌙</option>
+          </select>
+        </label>
+        <button id="saveProfile" class="button primary">Save Profile</button>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">Turn real life into a playable mall map</p>
+          <h2>Log what you did. Earn coins. Unlock stores. Buy rewards.</h2>
+          <p>Type an activity like “cleaned my room,” “studied JavaScript,” “walked the dog,” or “worked out.” The game sorts it into a reward category and pays you.</p>
+        </div>
+        <div class="hero-actions">
+          <button id="dailyBonus" class="button gold">Claim Daily Bonus</button>
+          <button id="resetGame" class="button ghost">Reset</button>
+        </div>
+      </header>
+
+      <section class="grid two">
+        <div class="card log-card">
+          <h3>Activity Terminal</h3>
+          <div class="input-row">
+            <input id="activityInput" placeholder="Example: studied coding for 45 minutes" />
+            <button id="logActivity" class="button primary">Log</button>
+          </div>
+          <div class="quick-tags" id="quickTags"></div>
+          <p class="hint">Categories: Mind, Body, Chores, Creative, Social, Money, Recovery, Bonus.</p>
+        </div>
+
+        <div class="card quest-card">
+          <div class="section-head">
+            <h3>Daily Quests</h3>
+            <button id="rerollQuests" class="button small">Reroll</button>
+          </div>
+          <div id="questList" class="quest-list"></div>
+        </div>
+      </section>
+
+      <section class="card map-card">
+        <div class="section-head">
+          <h3>Mall Map</h3>
+          <span id="mapStatus" class="pill">0 stores unlocked</span>
+        </div>
+        <div id="mallMap" class="mall-map"></div>
+      </section>
+
+      <section class="grid two">
+        <div class="card shop-card">
+          <h3>Reward Shops</h3>
+          <div id="shopList" class="shop-list"></div>
+        </div>
+
+        <div class="card inventory-card">
+          <h3>Inventory & Badges</h3>
+          <div id="inventory" class="inventory"></div>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <div class="card history-card">
+          <div class="section-head">
+            <h3>Recent Logs</h3>
+            <button id="clearHistory" class="button small">Clear Logs</button>
+          </div>
+          <div id="history" class="history"></div>
+        </div>
+
+        <div class="card export-card">
+          <h3>Share / Backup</h3>
+          <p>Export your save, send it to a friend, or keep it as a backup.</p>
+          <div class="button-row">
+            <button id="exportSave" class="button primary">Export Save</button>
+            <button id="importSave" class="button">Import Save</button>
+          </div>
+          <textarea id="saveBox" placeholder="Exported save data appears here. Paste save data here to import."></textarea>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
